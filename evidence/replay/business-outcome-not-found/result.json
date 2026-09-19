@@ -1,0 +1,16 @@
+{
+  "status": "business_outcome",
+  "capability": "member_savings_lookup",
+  "capability_version": "1.1.0",
+  "outputs": {},
+  "business_outcome_code": "member_not_found",
+  "business_outcome_description": "No member matches the given ID.",
+  "failure": null,
+  "intervention_id": null,
+  "escalation_reason": null,
+  "recovered": [],
+  "steps_executed": 3,
+  "duration_ms": 464,
+  "evidence_dir": "/home/claude/cua/evidence/replay/8b41233bc094",
+  "started_at": "2026-09-19T02:55:48.065948Z"
+}

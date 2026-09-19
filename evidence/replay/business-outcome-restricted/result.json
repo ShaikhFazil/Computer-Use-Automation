@@ -1,0 +1,16 @@
+{
+  "status": "business_outcome",
+  "capability": "member_savings_lookup",
+  "capability_version": "1.1.0",
+  "outputs": {},
+  "business_outcome_code": "permission_denied",
+  "business_outcome_description": "Record is restricted.",
+  "failure": null,
+  "intervention_id": null,
+  "escalation_reason": null,
+  "recovered": [],
+  "steps_executed": 3,
+  "duration_ms": 445,
+  "evidence_dir": "/home/claude/cua/evidence/replay/87861fd5f877",
+  "started_at": "2026-09-19T02:55:49.069120Z"
+}

@@ -1,0 +1,9 @@
+[project]
+name = "cua"
+version = "1.0.0"
+description = "Computer-Use Automation System — discover once, replay deterministically."
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

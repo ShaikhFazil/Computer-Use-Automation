@@ -1,0 +1,22 @@
+{
+  "status": "hard_failure",
+  "capability": "member_savings_lookup",
+  "capability_version": "1.1.0",
+  "outputs": {},
+  "business_outcome_code": null,
+  "business_outcome_description": null,
+  "failure": {
+    "step_index": 2,
+    "action": "click",
+    "expected": "Search button (stale locator)",
+    "observed": "No locator resolved for 'Search button (stale locator)'. Tried ['text']. Last: LocatorStrategy.TEXT='Find' matched 0",
+    "hint": "Locators may need a tenant override; see overrides[]."
+  },
+  "intervention_id": null,
+  "escalation_reason": null,
+  "recovered": [],
+  "steps_executed": 2,
+  "duration_ms": 396,
+  "evidence_dir": "/home/claude/cua/evidence/replay/cdc75a8cdbba",
+  "started_at": "2026-09-19T02:55:50.052675Z"
+}

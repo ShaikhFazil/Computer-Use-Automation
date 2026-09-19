@@ -1,0 +1,286 @@
+{
+  "schema_version": "1.0.0",
+  "name": "transfer_funds",
+  "version": "1.0.0",
+  "title": "Transfer funds to a saved beneficiary",
+  "description": "Complete the multi-field transfer form, review, and submit. Submitting the transfer is irreversible.",
+  "goal": "Transfer an amount from a member's account to a saved beneficiary.",
+  "binding": {
+    "kind": "web",
+    "app": "mock_bank",
+    "vendor": "meridian_servicing",
+    "version": "1.x",
+    "base_url_param": "base_url",
+    "tenant": null
+  },
+  "approval": "approved",
+  "created_at": "2026-09-19T02:54:03.288904Z",
+  "inputs": [
+    {
+      "name": "base_url",
+      "type": "string",
+      "required": true,
+      "description": "",
+      "sensitive": false,
+      "example": "http://localhost:5173/"
+    },
+    {
+      "name": "member_id",
+      "type": "string",
+      "required": true,
+      "description": "",
+      "sensitive": false,
+      "example": "100200"
+    },
+    {
+      "name": "from_account",
+      "type": "string",
+      "required": true,
+      "description": "",
+      "sensitive": false,
+      "example": "SAV-0100200-01"
+    },
+    {
+      "name": "beneficiary",
+      "type": "string",
+      "required": true,
+      "description": "",
+      "sensitive": false,
+      "example": "Charles Babbage"
+    },
+    {
+      "name": "amount",
+      "type": "string",
+      "required": true,
+      "description": "",
+      "sensitive": false,
+      "example": "250.00"
+    },
+    {
+      "name": "memo",
+      "type": "string",
+      "required": false,
+      "description": "",
+      "sensitive": false,
+      "example": "September rent"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "result",
+      "type": "string",
+      "description": "Outcome text after submitting.",
+      "sensitive": false
+    }
+  ],
+  "steps": [
+    {
+      "index": 0,
+      "action": "navigate",
+      "target": null,
+      "value": "{{base_url}}member/{{member_id}}/transfer/new",
+      "output_key": null,
+      "reversibility": "safe",
+      "checkpoint": {
+        "kind": "element_visible",
+        "target": {
+          "description": "From account select",
+          "locators": [
+            {
+              "strategy": "label",
+              "value": "From account",
+              "frame": null,
+              "role": null
+            },
+            {
+              "strategy": "test_id",
+              "value": "from-account",
+              "frame": null,
+              "role": null
+            }
+          ],
+          "robustness_note": ""
+        },
+        "expected": null,
+        "description": "Transfer form is visible."
+      },
+      "timeout_ms": 10000,
+      "note": "Open the transfer form."
+    },
+    {
+      "index": 1,
+      "action": "select",
+      "target": {
+        "description": "From account select",
+        "locators": [
+          {
+            "strategy": "label",
+            "value": "From account",
+            "frame": null,
+            "role": null
+          },
+          {
+            "strategy": "test_id",
+            "value": "from-account",
+            "frame": null,
+            "role": null
+          }
+        ],
+        "robustness_note": ""
+      },
+      "value": "{{from_account}}",
+      "output_key": null,
+      "reversibility": "safe",
+      "checkpoint": null,
+      "timeout_ms": 10000,
+      "note": "Choose the source account."
+    },
+    {
+      "index": 2,
+      "action": "select",
+      "target": {
+        "description": "Beneficiary select",
+        "locators": [
+          {
+            "strategy": "label",
+            "value": "Beneficiary",
+            "frame": null,
+            "role": null
+          },
+          {
+            "strategy": "test_id",
+            "value": "beneficiary",
+            "frame": null,
+            "role": null
+          }
+        ],
+        "robustness_note": ""
+      },
+      "value": "{{beneficiary}}",
+      "output_key": null,
+      "reversibility": "safe",
+      "checkpoint": null,
+      "timeout_ms": 10000,
+      "note": "Choose the beneficiary."
+    },
+    {
+      "index": 3,
+      "action": "type",
+      "target": {
+        "description": "Amount",
+        "locators": [
+          {
+            "strategy": "label",
+            "value": "Amount (USD)",
+            "frame": null,
+            "role": null
+          },
+          {
+            "strategy": "test_id",
+            "value": "amount",
+            "frame": null,
+            "role": null
+          }
+        ],
+        "robustness_note": ""
+      },
+      "value": "{{amount}}",
+      "output_key": null,
+      "reversibility": "safe",
+      "checkpoint": null,
+      "timeout_ms": 10000,
+      "note": "Enter the amount."
+    },
+    {
+      "index": 4,
+      "action": "click",
+      "target": {
+        "description": "Review transfer button",
+        "locators": [
+          {
+            "strategy": "role_name",
+            "value": "Review transfer",
+            "frame": null,
+            "role": "button"
+          },
+          {
+            "strategy": "test_id",
+            "value": "review-transfer",
+            "frame": null,
+            "role": null
+          }
+        ],
+        "robustness_note": ""
+      },
+      "value": null,
+      "output_key": null,
+      "reversibility": "safe",
+      "checkpoint": {
+        "kind": "text_present",
+        "target": null,
+        "expected": "Confirm transfer",
+        "description": "Review screen reached."
+      },
+      "timeout_ms": 10000,
+      "note": "Go to review."
+    },
+    {
+      "index": 5,
+      "action": "click",
+      "target": {
+        "description": "Confirm transfer button",
+        "locators": [
+          {
+            "strategy": "role_name",
+            "value": "Confirm transfer",
+            "frame": null,
+            "role": "button"
+          },
+          {
+            "strategy": "test_id",
+            "value": "confirm-transfer",
+            "frame": null,
+            "role": null
+          }
+        ],
+        "robustness_note": ""
+      },
+      "value": null,
+      "output_key": null,
+      "reversibility": "risky",
+      "checkpoint": {
+        "kind": "text_present",
+        "target": null,
+        "expected": "Transfer submitted",
+        "description": "Transfer was submitted."
+      },
+      "timeout_ms": 10000,
+      "note": "Submit the transfer. Irreversible \u2014 gated by policy."
+    }
+  ],
+  "success": {
+    "kind": "text_present",
+    "target": null,
+    "expected": "Transfer submitted",
+    "description": "The transfer was submitted."
+  },
+  "business_outcomes": [
+    {
+      "code": "member_not_found",
+      "description": "No member matches the given ID.",
+      "detect": {
+        "kind": "text_present",
+        "target": null,
+        "expected": "No member found",
+        "description": ""
+      },
+      "terminal": true
+    }
+  ],
+  "replay_stats": {
+    "runs": 0,
+    "successes": 0,
+    "last_run_at": null
+  },
+  "overrides": {}
+}

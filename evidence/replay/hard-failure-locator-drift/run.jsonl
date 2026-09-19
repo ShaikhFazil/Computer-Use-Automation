@@ -1,0 +1,5 @@
+{"ts": "2026-09-19T02:55:50.052692+00:00", "run_id": "cdc75a8cdbba", "stage": "start", "capability": "member_savings_lookup", "version": "1.1.0", "tenant": null, "params": {"base_url": "http://localhost:5173/", "member_id": "100200"}}
+{"ts": "2026-09-19T02:55:50.235795+00:00", "run_id": "cdc75a8cdbba", "stage": "step", "index": 0, "action": "navigate", "target": null, "value": "http://localhost:5173/"}
+{"ts": "2026-09-19T02:55:50.351704+00:00", "run_id": "cdc75a8cdbba", "stage": "step", "index": 1, "action": "type", "target": "Member ID search box", "value": "100200"}
+{"ts": "2026-09-19T02:55:50.395643+00:00", "run_id": "cdc75a8cdbba", "stage": "step", "index": 2, "action": "click", "target": "Search button (stale locator)", "value": null}
+{"ts": "2026-09-19T02:55:50.449222+00:00", "run_id": "cdc75a8cdbba", "stage": "hard_failure", "step": 2, "expected": "Search button (stale locator)", "observed": "No locator resolved for 'Search button (stale locator)'. Tried ['text']. Last: LocatorStrategy.TEXT='Find' matched 0"}

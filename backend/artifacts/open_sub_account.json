@@ -1,0 +1,292 @@
+{
+  "schema_version": "1.0.0",
+  "name": "open_sub_account",
+  "version": "1.0.0",
+  "title": "Open a sub-account for a member",
+  "description": "Fill the new sub-account form, reach the confirmation screen, and open the account. The final confirmation is irreversible.",
+  "goal": "Open a new sub-account for a member and complete the confirmation.",
+  "binding": {
+    "kind": "web",
+    "app": "mock_bank",
+    "vendor": "meridian_servicing",
+    "version": "1.x",
+    "base_url_param": "base_url",
+    "tenant": null
+  },
+  "approval": "approved",
+  "created_at": "2026-09-19T02:54:03.288390Z",
+  "inputs": [
+    {
+      "name": "base_url",
+      "type": "string",
+      "required": true,
+      "description": "",
+      "sensitive": false,
+      "example": "http://localhost:5173/"
+    },
+    {
+      "name": "member_id",
+      "type": "string",
+      "required": true,
+      "description": "",
+      "sensitive": false,
+      "example": "100200"
+    },
+    {
+      "name": "account_type",
+      "type": "string",
+      "required": false,
+      "description": "",
+      "sensitive": false,
+      "example": "Savings"
+    },
+    {
+      "name": "initial_deposit",
+      "type": "string",
+      "required": false,
+      "description": "",
+      "sensitive": false,
+      "example": "100.00"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "result",
+      "type": "string",
+      "description": "Outcome text after confirming.",
+      "sensitive": false
+    }
+  ],
+  "steps": [
+    {
+      "index": 0,
+      "action": "navigate",
+      "target": null,
+      "value": "{{base_url}}member/{{member_id}}",
+      "output_key": null,
+      "reversibility": "safe",
+      "checkpoint": {
+        "kind": "element_visible",
+        "target": {
+          "description": "Open sub-account button",
+          "locators": [
+            {
+              "strategy": "role_name",
+              "value": "Open sub-account",
+              "frame": null,
+              "role": "button"
+            },
+            {
+              "strategy": "test_id",
+              "value": "open-sub-account",
+              "frame": null,
+              "role": null
+            }
+          ],
+          "robustness_note": ""
+        },
+        "expected": null,
+        "description": "Member record is open."
+      },
+      "timeout_ms": 10000,
+      "note": "Open the member record."
+    },
+    {
+      "index": 1,
+      "action": "click",
+      "target": {
+        "description": "Open sub-account button",
+        "locators": [
+          {
+            "strategy": "role_name",
+            "value": "Open sub-account",
+            "frame": null,
+            "role": "button"
+          },
+          {
+            "strategy": "test_id",
+            "value": "open-sub-account",
+            "frame": null,
+            "role": null
+          }
+        ],
+        "robustness_note": ""
+      },
+      "value": null,
+      "output_key": null,
+      "reversibility": "safe",
+      "checkpoint": {
+        "kind": "element_visible",
+        "target": {
+          "description": "Account type select",
+          "locators": [
+            {
+              "strategy": "label",
+              "value": "Account type",
+              "frame": null,
+              "role": null
+            },
+            {
+              "strategy": "test_id",
+              "value": "account-type",
+              "frame": null,
+              "role": null
+            }
+          ],
+          "robustness_note": ""
+        },
+        "expected": null,
+        "description": "Sub-account form is visible."
+      },
+      "timeout_ms": 10000,
+      "note": "Start the new sub-account flow."
+    },
+    {
+      "index": 2,
+      "action": "select",
+      "target": {
+        "description": "Account type select",
+        "locators": [
+          {
+            "strategy": "label",
+            "value": "Account type",
+            "frame": null,
+            "role": null
+          },
+          {
+            "strategy": "test_id",
+            "value": "account-type",
+            "frame": null,
+            "role": null
+          }
+        ],
+        "robustness_note": ""
+      },
+      "value": "{{account_type}}",
+      "output_key": null,
+      "reversibility": "safe",
+      "checkpoint": null,
+      "timeout_ms": 10000,
+      "note": "Choose the account type."
+    },
+    {
+      "index": 3,
+      "action": "type",
+      "target": {
+        "description": "Initial deposit",
+        "locators": [
+          {
+            "strategy": "label",
+            "value": "Initial deposit (optional)",
+            "frame": null,
+            "role": null
+          },
+          {
+            "strategy": "test_id",
+            "value": "initial-deposit",
+            "frame": null,
+            "role": null
+          }
+        ],
+        "robustness_note": ""
+      },
+      "value": "{{initial_deposit}}",
+      "output_key": null,
+      "reversibility": "safe",
+      "checkpoint": null,
+      "timeout_ms": 10000,
+      "note": "Enter the initial deposit."
+    },
+    {
+      "index": 4,
+      "action": "click",
+      "target": {
+        "description": "Review button",
+        "locators": [
+          {
+            "strategy": "role_name",
+            "value": "Review",
+            "frame": null,
+            "role": "button"
+          },
+          {
+            "strategy": "test_id",
+            "value": "review-btn",
+            "frame": null,
+            "role": null
+          }
+        ],
+        "robustness_note": ""
+      },
+      "value": null,
+      "output_key": null,
+      "reversibility": "safe",
+      "checkpoint": {
+        "kind": "text_present",
+        "target": null,
+        "expected": "Confirmation",
+        "description": "Confirmation screen reached."
+      },
+      "timeout_ms": 10000,
+      "note": "Go to the confirmation screen."
+    },
+    {
+      "index": 5,
+      "action": "click",
+      "target": {
+        "description": "Confirm button",
+        "locators": [
+          {
+            "strategy": "role_name",
+            "value": "Confirm",
+            "frame": null,
+            "role": "button"
+          },
+          {
+            "strategy": "test_id",
+            "value": "confirm-btn",
+            "frame": null,
+            "role": null
+          }
+        ],
+        "robustness_note": ""
+      },
+      "value": null,
+      "output_key": null,
+      "reversibility": "risky",
+      "checkpoint": {
+        "kind": "text_present",
+        "target": null,
+        "expected": "Sub-account opened",
+        "description": "Account was opened."
+      },
+      "timeout_ms": 10000,
+      "note": "Open the account. Irreversible \u2014 gated by policy."
+    }
+  ],
+  "success": {
+    "kind": "text_present",
+    "target": null,
+    "expected": "Sub-account opened",
+    "description": "The sub-account was opened."
+  },
+  "business_outcomes": [
+    {
+      "code": "member_not_found",
+      "description": "No member matches the given ID.",
+      "detect": {
+        "kind": "text_present",
+        "target": null,
+        "expected": "No member found",
+        "description": ""
+      },
+      "terminal": true
+    }
+  ],
+  "replay_stats": {
+    "runs": 0,
+    "successes": 0,
+    "last_run_at": null
+  },
+  "overrides": {}
+}

@@ -1,0 +1,179 @@
+{
+  "schema_version": "1.0.0",
+  "name": "member_savings_lookup_discovered",
+  "version": "1.0.0",
+  "title": "Member Savings Lookup Discovered",
+  "description": "Find the savings account balance for a given member ID.",
+  "goal": "Find the savings account balance for a given member ID.",
+  "binding": {
+    "kind": "web",
+    "app": "mock_bank",
+    "vendor": "meridian_servicing",
+    "version": null,
+    "base_url_param": "base_url",
+    "tenant": null
+  },
+  "approval": "draft",
+  "created_at": "2026-09-19T02:55:46.436719Z",
+  "inputs": [
+    {
+      "name": "base_url",
+      "type": "string",
+      "required": true,
+      "description": "Entry URL of the app",
+      "sensitive": false,
+      "example": "http://localhost:5173/"
+    },
+    {
+      "name": "input_0",
+      "type": "string",
+      "required": true,
+      "description": "Typed value '100200'",
+      "sensitive": false,
+      "example": "100200"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "savings_balance",
+      "type": "string",
+      "description": "Extracted savings_balance",
+      "sensitive": false
+    }
+  ],
+  "steps": [
+    {
+      "index": 0,
+      "action": "type",
+      "target": {
+        "description": "Member ID",
+        "locators": [
+          {
+            "strategy": "test_id",
+            "value": "member-id-input",
+            "frame": null,
+            "role": null
+          },
+          {
+            "strategy": "role_name",
+            "value": "Member ID",
+            "frame": null,
+            "role": "textbox"
+          },
+          {
+            "strategy": "label",
+            "value": "Member ID",
+            "frame": null,
+            "role": null
+          },
+          {
+            "strategy": "placeholder",
+            "value": "e.g. 100200",
+            "frame": null,
+            "role": null
+          },
+          {
+            "strategy": "css",
+            "value": "[data-testid='member-id-input']",
+            "frame": null,
+            "role": null
+          }
+        ],
+        "robustness_note": "Labelled form control; role+name is stable."
+      },
+      "value": "100200",
+      "output_key": null,
+      "reversibility": "safe",
+      "checkpoint": null,
+      "timeout_ms": 10000,
+      "note": "Enter the member ID."
+    },
+    {
+      "index": 1,
+      "action": "click",
+      "target": {
+        "description": "Search",
+        "locators": [
+          {
+            "strategy": "test_id",
+            "value": "search-btn",
+            "frame": null,
+            "role": null
+          },
+          {
+            "strategy": "role_name",
+            "value": "Search",
+            "frame": null,
+            "role": "button"
+          },
+          {
+            "strategy": "text",
+            "value": "Search",
+            "frame": null,
+            "role": null
+          },
+          {
+            "strategy": "css",
+            "value": "[data-testid='search-btn']",
+            "frame": null,
+            "role": null
+          }
+        ],
+        "robustness_note": "Primary action button, addressed by role+name."
+      },
+      "value": null,
+      "output_key": null,
+      "reversibility": "safe",
+      "checkpoint": null,
+      "timeout_ms": 10000,
+      "note": "Submit the lookup."
+    },
+    {
+      "index": 2,
+      "action": "extract",
+      "target": {
+        "description": "Savings balance",
+        "locators": [
+          {
+            "strategy": "test_id",
+            "value": "savings-balance",
+            "frame": null,
+            "role": null
+          },
+          {
+            "strategy": "role_name",
+            "value": "Savings balance",
+            "frame": null,
+            "role": "div"
+          },
+          {
+            "strategy": "css",
+            "value": "[data-testid='savings-balance']",
+            "frame": null,
+            "role": null
+          }
+        ],
+        "robustness_note": "aria-labelled value node; test-id fallback."
+      },
+      "value": null,
+      "output_key": "savings_balance",
+      "reversibility": "safe",
+      "checkpoint": null,
+      "timeout_ms": 10000,
+      "note": "Read the savings balance."
+    }
+  ],
+  "success": {
+    "kind": "text_present",
+    "target": null,
+    "expected": "",
+    "description": "Goal reached (auto-generated; refine on review)."
+  },
+  "business_outcomes": [],
+  "replay_stats": {
+    "runs": 0,
+    "successes": 0,
+    "last_run_at": null
+  },
+  "overrides": {}
+}

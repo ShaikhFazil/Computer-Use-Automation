@@ -1,0 +1,5 @@
+{"ts": "2026-09-19T02:55:48.065967+00:00", "run_id": "8b41233bc094", "stage": "start", "capability": "member_savings_lookup", "version": "1.1.0", "tenant": null, "params": {"base_url": "http://localhost:5173/", "member_id": "999999"}}
+{"ts": "2026-09-19T02:55:48.257182+00:00", "run_id": "8b41233bc094", "stage": "step", "index": 0, "action": "navigate", "target": null, "value": "http://localhost:5173/"}
+{"ts": "2026-09-19T02:55:48.375455+00:00", "run_id": "8b41233bc094", "stage": "step", "index": 1, "action": "type", "target": "Member ID search box", "value": "999999"}
+{"ts": "2026-09-19T02:55:48.421103+00:00", "run_id": "8b41233bc094", "stage": "step", "index": 2, "action": "click", "target": "Search button", "value": null}
+{"ts": "2026-09-19T02:55:48.530526+00:00", "run_id": "8b41233bc094", "stage": "business_outcome", "code": "member_not_found", "step": 3}

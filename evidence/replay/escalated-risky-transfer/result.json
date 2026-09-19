@@ -1,0 +1,16 @@
+{
+  "status": "escalated",
+  "capability": "transfer_funds",
+  "capability_version": "1.0.0",
+  "outputs": {},
+  "business_outcome_code": null,
+  "business_outcome_description": null,
+  "failure": null,
+  "intervention_id": "db2228c36a86",
+  "escalation_reason": "Risky/irreversible step requires human confirmation.",
+  "recovered": [],
+  "steps_executed": 5,
+  "duration_ms": 567,
+  "evidence_dir": "/home/claude/cua/evidence/replay/f8f1cc6a8b65",
+  "started_at": "2026-09-19T02:55:50.975324Z"
+}

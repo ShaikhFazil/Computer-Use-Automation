@@ -1,0 +1,45 @@
+# Secrets — never commit
+.env
+*.env
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+
+# Node / mock-bank
+node_modules/
+mock-bank/dist/
+
+# Runtime evidence & artifacts (committed samples are force-added below)
+evidence/discovery/*
+evidence/replay/*
+backend/artifacts/*
+
+# Keep the curated, committed samples
+!evidence/discovery/member_savings_lookup/
+!evidence/discovery/member_savings_lookup/**
+!evidence/replay/success-100200/
+!evidence/replay/success-100200/**
+!evidence/replay/business-outcome-not-found/
+!evidence/replay/business-outcome-not-found/**
+!evidence/replay/business-outcome-restricted/
+!evidence/replay/business-outcome-restricted/**
+!evidence/replay/hard-failure-locator-drift/
+!evidence/replay/hard-failure-locator-drift/**
+!evidence/replay/escalated-risky-transfer/
+!evidence/replay/escalated-risky-transfer/**
+!evidence/replay/multi-tenant-westside/
+!evidence/replay/multi-tenant-westside/**
+!backend/artifacts/*.json
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/

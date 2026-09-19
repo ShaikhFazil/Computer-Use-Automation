@@ -1,0 +1,7 @@
+{"ts": "2026-09-19T02:55:50.975345+00:00", "run_id": "f8f1cc6a8b65", "stage": "start", "capability": "transfer_funds", "version": "1.0.0", "tenant": null, "params": {"base_url": "http://localhost:5173/", "member_id": "100200", "from_account": "SAV-0100200-01", "beneficiary": "Charles Babbage", "amount": "250.00", "memo": "September rent"}}
+{"ts": "2026-09-19T02:55:51.165832+00:00", "run_id": "f8f1cc6a8b65", "stage": "step", "index": 0, "action": "navigate", "target": null, "value": "http://localhost:5173/member/100200/transfer/new"}
+{"ts": "2026-09-19T02:55:51.272701+00:00", "run_id": "f8f1cc6a8b65", "stage": "step", "index": 1, "action": "select", "target": "From account select", "value": "SAV-0100200-01"}
+{"ts": "2026-09-19T02:55:51.307337+00:00", "run_id": "f8f1cc6a8b65", "stage": "step", "index": 2, "action": "select", "target": "Beneficiary select", "value": "Charles Babbage"}
+{"ts": "2026-09-19T02:55:51.353116+00:00", "run_id": "f8f1cc6a8b65", "stage": "step", "index": 3, "action": "type", "target": "Amount", "value": "250.00"}
+{"ts": "2026-09-19T02:55:51.386899+00:00", "run_id": "f8f1cc6a8b65", "stage": "step", "index": 4, "action": "click", "target": "Review transfer button", "value": null}
+{"ts": "2026-09-19T02:55:51.542680+00:00", "run_id": "f8f1cc6a8b65", "stage": "escalated", "intervention_id": "db2228c36a86", "reason": "risky_confirmation", "why": "Risky/irreversible step requires human confirmation."}

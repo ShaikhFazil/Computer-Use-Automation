@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "capability": "member_savings_lookup",
+  "capability_version": "1.1.0",
+  "outputs": {
+    "savings_balance": "$18,004.10"
+  },
+  "business_outcome_code": null,
+  "business_outcome_description": null,
+  "failure": null,
+  "intervention_id": null,
+  "escalation_reason": null,
+  "recovered": [],
+  "steps_executed": 4,
+  "duration_ms": 515,
+  "evidence_dir": "/home/claude/cua/evidence/replay/b067b345967c",
+  "started_at": "2026-09-19T02:55:52.121357Z"
+}

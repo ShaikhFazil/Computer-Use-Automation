@@ -1,0 +1,7 @@
+{"ts": "2026-09-19T02:55:46.991701+00:00", "run_id": "978aeba78bbd", "stage": "start", "capability": "member_savings_lookup", "version": "1.1.0", "tenant": null, "params": {"base_url": "http://localhost:5173/", "member_id": "100200"}}
+{"ts": "2026-09-19T02:55:47.187368+00:00", "run_id": "978aeba78bbd", "stage": "step", "index": 0, "action": "navigate", "target": null, "value": "http://localhost:5173/"}
+{"ts": "2026-09-19T02:55:47.307723+00:00", "run_id": "978aeba78bbd", "stage": "step", "index": 1, "action": "type", "target": "Member ID search box", "value": "100200"}
+{"ts": "2026-09-19T02:55:47.355987+00:00", "run_id": "978aeba78bbd", "stage": "step", "index": 2, "action": "click", "target": "Search button", "value": null}
+{"ts": "2026-09-19T02:55:47.469652+00:00", "run_id": "978aeba78bbd", "stage": "step", "index": 3, "action": "extract", "target": "Savings balance value", "value": null}
+{"ts": "2026-09-19T02:55:47.480691+00:00", "run_id": "978aeba78bbd", "stage": "extract", "key": "savings_balance", "chars": 9}
+{"ts": "2026-09-19T02:55:47.499702+00:00", "run_id": "978aeba78bbd", "stage": "success", "outputs": ["savings_balance"]}

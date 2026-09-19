@@ -1,0 +1,7 @@
+{"ts": "2026-09-19T02:55:52.121371+00:00", "run_id": "b067b345967c", "stage": "start", "capability": "member_savings_lookup", "version": "1.1.0", "tenant": "westside_cu", "params": {"base_url": "http://localhost:5173/?tenant=westside", "member_id": "100355"}}
+{"ts": "2026-09-19T02:55:52.328945+00:00", "run_id": "b067b345967c", "stage": "step", "index": 0, "action": "navigate", "target": null, "value": "http://localhost:5173/?tenant=westside"}
+{"ts": "2026-09-19T02:55:52.454136+00:00", "run_id": "b067b345967c", "stage": "step", "index": 1, "action": "type", "target": "Member ID search box", "value": "100355"}
+{"ts": "2026-09-19T02:55:52.499898+00:00", "run_id": "b067b345967c", "stage": "step", "index": 2, "action": "click", "target": "Search button", "value": null}
+{"ts": "2026-09-19T02:55:52.605133+00:00", "run_id": "b067b345967c", "stage": "step", "index": 3, "action": "extract", "target": "Savings balance value", "value": null}
+{"ts": "2026-09-19T02:55:52.616771+00:00", "run_id": "b067b345967c", "stage": "extract", "key": "savings_balance", "chars": 10}
+{"ts": "2026-09-19T02:55:52.636405+00:00", "run_id": "b067b345967c", "stage": "success", "outputs": ["savings_balance"]}
